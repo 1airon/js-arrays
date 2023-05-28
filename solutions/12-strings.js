@@ -1,17 +1,16 @@
 // BEGIN
-const makeCensored = (string, massive) => {
-    let censored = [];
-    for (let stringElement of string.split(' ')) {
-        if (massive.indexOf(stringElement) != -1) {
-            censored.push('$#%!');
-        }
-        else {
-            censored.push(stringElement);
-        }
-        
+const makeCensored = (text, censoredWords) => {
+    const words = text.split(' ');
+    const censoredText = [];
+  
+    for (let i = 0; i < words.length; i++) {
+      const word = words[i];
+      const censoredWord = censoredWords.includes(word) ? '$#%!' : word;
+      censoredText.push(censoredWord);
     }
-    return censored.join(' ');
+  
+    return censoredText.join(' ');
+  }  
 
-}
-export default makeCensored;
+  export default makeCensored;
 // END

@@ -1,14 +1,21 @@
 // BEGIN
 const getSameParity = (massive) => {
-    let newMassive = [];
-    let pariry = Math.abs(massive[0] % 2);
-    for (let massiveElement of massive) {
-        if (Math.abs(massiveElement % 2) == pariry){
-            newMassive.push(massiveElement);    
-        }
-
+    if (massive.length === 0) {
+      return [];
     }
-    return newMassive;
-}
-export default getSameParity;
+  
+    const result = [];
+    const firstNumber = massive[0];
+    const isEven = firstNumber % 2 === 0;
+  
+    for (let i = 0; i < massive.length; i++) {
+      if (Math.abs(massive[i]) % 2 === 0 === isEven) {
+        result.push(massive[i]);
+      }
+    }
+  
+    return result;
+  }
+
+  export default getSameParity;
 // END

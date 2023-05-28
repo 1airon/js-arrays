@@ -1,27 +1,28 @@
-
-
 // BEGIN
-const getSuperSeriesWinner = (massive) => {
-let canada = 0;
-let ussr = 0;
-for (let massiveElement of massive) {
-    let ca = massiveElement[0]
-    let uss = massiveElement[1]
-    if(ca > uss) {
-        canada += 1
+const getSuperSeriesWinner = (scores) => {
+    let canadaWins = 0;
+    let ussrWins = 0;
+  
+    for (let i = 0; i < scores.length; i++) {
+      const game = scores[i];
+      const canadaScore = game[0];
+      const ussrScore = game[1];
+  
+      if (canadaScore > ussrScore) {
+        canadaWins++;
+      } else if (canadaScore < ussrScore) {
+        ussrWins++;
+      }
     }
-    else if (ca < uss) {
-        ussr += 1
-    };
-}
-if (canada > ussr){
-    return 'canada'
-}
-else if (ussr > canada) {
-    return 'ussr'}
-    else {
-        return null
+  
+    if (canadaWins > ussrWins) {
+      return 'canada';
+    } else if (canadaWins < ussrWins) {
+      return 'ussr';
+    } else {
+      return null;
     }
-}
-export default getSuperSeriesWinner;
+  }  
+
+  export default getSuperSeriesWinner;
 // END

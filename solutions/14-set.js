@@ -1,8 +1,8 @@
 // BEGIN
-const countUniqChars = (string) => {
-    let set = new Set(string.split(''));
-    let newMassive = Array.from(set)
-    return newMassive.length;
-}
+const countUniqChars = (text) => {
+    const chars = new Set(text);
+    return chars.size;
+  }
+
 export default countUniqChars;
 // END
